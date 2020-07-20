@@ -196,18 +196,36 @@
 
 // 9.
 
-let murderer = 'Professor Plum';
+// let murderer = 'Professor Plum';
 
-if (murderer === 'Professor Plum') {
-  let murderer = 'Mrs. Peacock';
-}
+// if (murderer === 'Professor Plum') {
+//   let murderer = 'Mrs. Peacock';
+// }
 
-const declareMurderer = function() {
-  return `The murderer is ${murderer}.`;
-}
+// const declareMurderer = function() {
+//   return `The murderer is ${murderer}.`;
+// }
 
-const verdict = declareMurderer();
-console.log(verdict);
+// const verdict = declareMurderer();
+// console.log(verdict);
 
 // A. 'The murderer is Professor Plum.'
 // Reason: the variable inside the if statement is not redefining the old one, its a new variable local to that block of code and is never read.
+
+const scenario = {
+    murderer: 'Stephen',
+    room: 'Bedroom',
+    weapon: 'Boo'
+};
+
+const declareMurderer = () => {
+    return `The murderer is ${scenario.murderer}.`;
+};
+
+const changeMurderer = (() => {
+    if (scenario.weapon === 'Boo') {
+        scenario.murderer = 'a random ghost'
+    }
+})();
+
+console.log(declareMurderer());
